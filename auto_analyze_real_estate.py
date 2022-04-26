@@ -1,19 +1,33 @@
+# PLEASE HAVE A BACKUP BEFORE CHANGING THE ORIGINAL REPOSITORY!
+# READ COMMENT FOR EVERY CHANGE CAREFULLY!
+
 import requests
 from bs4 import BeautifulSoup
 import re
 
+# Use class to contain functions. I am assuming Line 10 ---> 20 are independent
+# from each other. And does not clash with other calculations in the program.
+# If other calculations depend on statements & variables from Line 10 ---> 20
+# please ignore the class Finn_Kode.
+class Finn_Kode:
+    
+    def find_code():
+        # Inputs for å finne annonse og avgjøre forventet inntekt
+        finn_kode = input('Skriv inn Finn-Kode her: ') # Most functions should start with small caps.
+        url = f"https://www.finn.no/realestate/homes/ad.html?finnkode={Finn_Kode}"
+        r = requests.get(url)
+        if != r.ok: # != and not or is not means the same. Usually seen it does this way.
+            print("Ugyldig Finn-kode.")
+            quit()
+        soup = BeautifulSoup(r.content, 'html.parser')
+        Leieinntekt = input('Forventet leieinntekt for objektet (kr): ')
+        Forventet_Rente = input("Skriv inn forventet rente på lån (%): ")
+        Andre_Utgifter = input('Andre mnd. utgifter i kr, skriv 0 hvis det ikke er noen: ')
+        
+
 while True:
-    # Inputs for å finne annonse og avgjøre forventet inntekt
-    Finn_Kode = input('Skriv inn Finn-Kode her: ')
-    url = f"https://www.finn.no/realestate/homes/ad.html?finnkode={Finn_Kode}"
-    r = requests.get(url)
-    if not r.ok:
-        print("Ugyldig Finn-kode.")
-        quit()
-    soup = BeautifulSoup(r.content, 'html.parser')
-    Leieinntekt = input('Forventet leieinntekt for objektet (kr): ')
-    Forventet_Rente = input("Skriv inn forventet rente på lån (%): ")
-    Andre_Utgifter = input('Andre mnd. utgifter i kr, skriv 0 hvis det ikke er noen: ')
+    
+    Finn_Kode.find_code() # The Finn Code, categorized in a class and placed in a function.
 
     # Avansert prosess for å fjerne tekst og konvertere totalpris til et tall:
     try:
