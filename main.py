@@ -96,11 +96,11 @@ def calculation():                                          # Using collected da
 
         print(f'\nForventet årlig avkastning er ca. {round(avkastning, 2)}%.\n'
               f'Du vil sitte igjen med ca. {round(income_post_tax)}kr pr mnd.\n')
-    except ValueError:
+    except ValueError:                                      # If an input is not a number, it will show a message (and start over; while True)
         print(f"\n{ValueError}: Et av dine inputs er ikke et tall, prøv igjen med bare tall.\n")
 
 
-def main():                                                 # Main function, will run all functions in the right order to transfer required variables
+def main():                                                 # Main function, runs all functions in the right order to transfer required variables
     finn_code()
     get_url()
     rent()
